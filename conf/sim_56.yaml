@@ -1,0 +1,65 @@
+debug: false
+environment:
+  browser:
+    cache_dir: ./browser_cache
+    context_options:
+      bypass_csp: true
+      device_scale_factor: 1
+      extra_http_headers: null
+      user_agent: null
+      viewport:
+        height: 768
+        width: 1024
+    launch_options:
+      args:
+      - --disable-autofill-keyboard-accessory-view
+      - --disable-autofill-profile-update
+      - --disable-autofill
+      - --disable-extensions
+      - --disable-background-networking
+      - --safebrowsing-disable-auto-update
+      - --disable-component-update
+      - --disable-default-apps
+      - --no-first-run
+      - --no-default-browser-check
+      - --metrics-recording-only
+      - --disable-sync
+      - --disable-translate
+      - --disable-client-side-phishing-detection
+      - --disable-domain-reliability
+      - --disable-crash-reporter
+      headless: ${oc.decode:${oc.env:HEADLESS,true}}
+    sleep_after_action: 2
+    timeouts:
+      container_health_check: 3000
+      custom_network_idle: 3000
+      default: 10000
+      element_wait: 2000
+      page_load_domcontent: 10000
+      page_load_networkidle: 3000
+    user_data_dir: ./browser_session
+  init_script_path: src/simulated_web_agent/executor/parser/initscript.js
+  parser_script_path: src/simulated_web_agent/executor/parser/parser.js
+  recording:
+    enabled: false
+  sites:
+    shopping: https://www.amazon.com/
+  tracing:
+    enabled: false
+    output_path: trace.zip
+    screenshots: true
+    snapshots: true
+    sources: true
+example_persona: Older userYou are a retiree in their 70s. You have typical digital
+  skills for your age.
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: ./outputs/${now:%Y-%m-%d_%H-%M-%S}
+llm_provider: anthropic
+log_level: DEBUG
+survey:
+  memory_dir: src/simulated_web_agent/surveys/memory_trace
+  out_dir: src/simulated_web_agent/surveys/out
+  questionnaire: src/simulated_web_agent/surveys/questionnaire.json
