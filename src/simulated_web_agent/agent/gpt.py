@@ -22,7 +22,7 @@ from litellm.router import Router
 
 from . import context
 
-provider = "openai"  # "openai" or "aws" or "anthropic"
+provider = "anthropic"  # "openai" or "aws" or "anthropic"
 
 prompt_dir = Path(__file__).parent.absolute() / "shop_prompts"
 
@@ -47,7 +47,7 @@ chat_router = Router(
         {
             "model_name": "anthropic",
             "litellm_params": {
-                "model": "claude-sonnet-4-20250514",
+                "model": "claude-sonnet-4-5-20250929",
             },
         },
         {
@@ -70,7 +70,7 @@ chat_router = Router(
         {
             "model_name": "anthropic_thinking",
             "litellm_params": {
-                "model": "claude-sonnet-4-20250514",
+                "model": "claude-sonnet-4-5-20250929",
                 "thinking": {
                     "type": "enabled",
                     "budget_tokens": 32000,
@@ -98,7 +98,7 @@ slow_chat_router = Router(
         {
             "model_name": "anthropic",
             "litellm_params": {
-                "model": "claude-sonnet-4-20250514",
+                "model": "claude-sonnet-4-5-20250929",
             },
         },
         {
@@ -118,7 +118,7 @@ slow_chat_router = Router(
         {
             "model_name": "anthropic_thinking",
             "litellm_params": {
-                "model": "claude-sonnet-4-20250514",
+                "model": "claude-sonnet-4-5-20250929",
                 "thinking": {
                     "type": "enabled",
                     "budget_tokens": 32000,
@@ -148,7 +148,7 @@ embed_router = Router(
 
 load_dotenv()  # load anthropic api key from .env
 anthropic_client = anthropic.Anthropic()
-anthropic_model = "claude-sonnet-4-20250514"
+anthropic_model = "claude-sonnet-4-5-20250929"
 
 
 def async_retry(times=10):

@@ -92,7 +92,7 @@ survey:
 # LLM CONFIGURATION
 # ============================================================================
 # Large Language Model provider settings
-llm_provider: "aws"     # Provider: "openai" or "aws" or "anthropic"
+llm_provider: "anthropic"     # Provider: "openai" or "aws" or "anthropic"
 
 # ============================================================================
 # GENERAL SETTINGS
@@ -116,23 +116,23 @@ example_persona: |
   Background:
   Clara is a PhD student in Computer Science at a prestigious university. She is deeply engaged in research focusing on artificial intelligence and machine learning, aiming to contribute to advancements in technology that can benefit society.
 
-  Demographics:
+# Demographics:
 
-  Age: 28
-  Gender: Female
-  Education: Pursuing a PhD in Computer Science
-  Profession: PhD student
-  Income: $50,000
+# Age: 28
+# Gender: Female
+# Education: Pursuing a PhD in Computer Science
+# Profession: PhD student
+# Income: $50,000
 
-  Financial Situation:
-  Clara lives on her stipend as a PhD student and is careful with her spending. She prefers to save money for research-related expenses and invest in her academic pursuits.
+# Financial Situation:
+# Clara lives on her stipend as a PhD student and is careful with her spending. She prefers to save money for research-related expenses and invest in her academic pursuits.
 
-  Shopping Habits:
-  Clara dislikes shopping and avoids spending much time browsing through products. She prefers straightforward, efficient shopping experiences and often shops online for convenience. When she does shop, she looks for practicality and affordability over style or trendiness.
-  So Clara wants to shop QUICKLY and EFFICIENTLY.
+# Shopping Habits:
+# Clara dislikes shopping and avoids spending much time browsing through products. She prefers straightforward, efficient shopping experiences and often shops online for convenience. When she does shop, she looks for practicality and affordability over style or trendiness.
+# So Clara wants to shop QUICKLY and EFFICIENTLY.
 
-  Professional Life:
-  Clara spends most of her time in academia, attending conferences, working in the lab, and writing papers. Her commitment to her research is her main priority, and she manages her time around her academic responsibilities.
+# Professional Life:
+# Clara spends most of her time in academia, attending conferences, working in the lab, and writing papers. Her commitment to her research is her main priority, and she manages her time around her academic responsibilities.
 
-  Personal Style:
-  Clara prefers comfortable, functional clothing, often choosing items that are easy to wear for long hours spent at her desk or in the lab. She wears medium-sized clothing and likes colors that reflect her personality—mostly red, which she finds uplifting and energizing.
+# Personal Style:
+# Clara prefers comfortable, functional clothing, often choosing items that are easy to wear for long hours spent at her desk or in the lab. She wears medium-sized clothing and likes colors that reflect her personality—mostly red, which she finds uplifting and energizing.
