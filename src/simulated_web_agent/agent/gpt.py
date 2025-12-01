@@ -135,6 +135,10 @@ embed_router = Router(
             "litellm_params": {"model": "openai/text-embedding-3-small"},
         },
         {
+            "model_name": "anthropic",
+            "litellm_params": {"model": "openai/text-embedding-3-small"},
+        },
+        {
             "model_name": "aws",
             "litellm_params": {
                 "model": "bedrock/cohere.embed-english-v3",
