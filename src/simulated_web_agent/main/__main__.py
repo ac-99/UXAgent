@@ -13,15 +13,20 @@ from .experiment import _run_for_persona_and_intent
 from .model import AgentPolicy  # noqa
 
 
-def _load_cfg():
+def _load_cfg(config_name="base"):
     here = Path(__file__).resolve().parent
     conf_dir = here.parents[2] / "conf"
     with initialize_config_dir(version_base=None, config_dir=str(conf_dir)):
-        cfg = compose(config_name="base")
+        cfg = compose(config_name=config_name)
     return cfg
 
-
 @click.command()
+@click.option(
+    "--config",
+    default="base",
+    show_default=True,
+    help="Name of the config file to use (without .yaml extension).",
+)
 @click.option(
     "--record/--no-record",
     default=False,
@@ -72,6 +77,7 @@ def _load_cfg():
     help="User data directory for the browser.",
 )
 def main(
+    config: str,
     record: bool,
     headless: bool,
     persona: str,
@@ -87,7 +93,7 @@ def main(
     logging.basicConfig(level=logging.INFO)
     logging.getLogger("LiteLLM").setLevel(logging.WARNING)
     logging.getLogger("LiteLLM Router").setLevel(logging.WARNING)
-    cfg = _load_cfg()
+    cfg = _load_cfg(config_name=config)
     cfg.environment.recording.enabled = record
     cfg.environment.browser.launch_options.headless = headless
     gpt.provider = cfg.llm_provider
